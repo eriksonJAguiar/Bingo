@@ -1,0 +1,9 @@
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\bin\Debug\Bingo.exe.config
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\bin\Debug\Bingo.exe
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\bin\Debug\Bingo.pdb
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.csprojResolveAssemblyReference.cache
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.Bingo.resources
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.Properties.Resources.resources
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.csproj.GenerateResource.Cache
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.exe
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.pdb
