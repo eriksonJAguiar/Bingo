@@ -51,6 +51,7 @@
     <Compile Include="Bingo.Designer.cs">
       <DependentUpon>Bingo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Conf_Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bingo.resx">
@@ -79,7 +80,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Imagens\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
