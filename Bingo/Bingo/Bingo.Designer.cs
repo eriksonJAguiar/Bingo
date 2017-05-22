@@ -84,6 +84,7 @@
             this.btn_entraJogo.TabIndex = 3;
             this.btn_entraJogo.Text = "Entra no Jogo";
             this.btn_entraJogo.UseVisualStyleBackColor = true;
+            this.btn_entraJogo.Click += new System.EventHandler(this.btn_entraJogo_Click);
             // 
             // label_jogador
             // 
@@ -134,6 +135,7 @@
             this.Controls.Add(this.panel_Principal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Bingo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bingo";
