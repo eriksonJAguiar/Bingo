@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
             this.panel_principal = new System.Windows.Forms.Panel();
+            this.listBox_num_sort = new System.Windows.Forms.ListBox();
+            this.btn_bingo = new System.Windows.Forms.Button();
+            this.label_num_sort = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -47,14 +50,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label_num_sort = new System.Windows.Forms.Label();
-            this.btn_bingo = new System.Windows.Forms.Button();
-            this.listBox_num_sort = new System.Windows.Forms.ListBox();
+            this.gerar = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
+            this.panel_principal.Controls.Add(this.gerar);
             this.panel_principal.Controls.Add(this.listBox_num_sort);
             this.panel_principal.Controls.Add(this.btn_bingo);
             this.panel_principal.Controls.Add(this.label_num_sort);
@@ -80,6 +82,41 @@
             this.panel_principal.Name = "panel_principal";
             this.panel_principal.Size = new System.Drawing.Size(484, 461);
             this.panel_principal.TabIndex = 0;
+            // 
+            // listBox_num_sort
+            // 
+            this.listBox_num_sort.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBox_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox_num_sort.FormattingEnabled = true;
+            this.listBox_num_sort.ItemHeight = 25;
+            this.listBox_num_sort.Location = new System.Drawing.Point(17, 321);
+            this.listBox_num_sort.Name = "listBox_num_sort";
+            this.listBox_num_sort.Size = new System.Drawing.Size(455, 129);
+            this.listBox_num_sort.TabIndex = 31;
+            // 
+            // btn_bingo
+            // 
+            this.btn_bingo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_bingo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_bingo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bingo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_bingo.Location = new System.Drawing.Point(363, 60);
+            this.btn_bingo.Name = "btn_bingo";
+            this.btn_bingo.Size = new System.Drawing.Size(109, 106);
+            this.btn_bingo.TabIndex = 30;
+            this.btn_bingo.Text = "Bingo";
+            this.btn_bingo.UseVisualStyleBackColor = false;
+            this.btn_bingo.Click += new System.EventHandler(this.btn_bingo_Click);
+            // 
+            // label_num_sort
+            // 
+            this.label_num_sort.AutoSize = true;
+            this.label_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_num_sort.Location = new System.Drawing.Point(12, 293);
+            this.label_num_sort.Name = "label_num_sort";
+            this.label_num_sort.Size = new System.Drawing.Size(226, 25);
+            this.label_num_sort.TabIndex = 29;
+            this.label_num_sort.Text = "Números Sorteados:";
             // 
             // button16
             // 
@@ -299,40 +336,15 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label_num_sort
+            // gerar
             // 
-            this.label_num_sort.AutoSize = true;
-            this.label_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_num_sort.Location = new System.Drawing.Point(12, 293);
-            this.label_num_sort.Name = "label_num_sort";
-            this.label_num_sort.Size = new System.Drawing.Size(226, 25);
-            this.label_num_sort.TabIndex = 29;
-            this.label_num_sort.Text = "Números Sorteados:";
-            // 
-            // btn_bingo
-            // 
-            this.btn_bingo.BackColor = System.Drawing.Color.ForestGreen;
-            this.btn_bingo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_bingo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_bingo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_bingo.Location = new System.Drawing.Point(363, 60);
-            this.btn_bingo.Name = "btn_bingo";
-            this.btn_bingo.Size = new System.Drawing.Size(109, 106);
-            this.btn_bingo.TabIndex = 30;
-            this.btn_bingo.Text = "Bingo";
-            this.btn_bingo.UseVisualStyleBackColor = false;
-            this.btn_bingo.Click += new System.EventHandler(this.btn_bingo_Click);
-            // 
-            // listBox_num_sort
-            // 
-            this.listBox_num_sort.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listBox_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox_num_sort.FormattingEnabled = true;
-            this.listBox_num_sort.ItemHeight = 25;
-            this.listBox_num_sort.Location = new System.Drawing.Point(17, 321);
-            this.listBox_num_sort.Name = "listBox_num_sort";
-            this.listBox_num_sort.Size = new System.Drawing.Size(455, 129);
-            this.listBox_num_sort.TabIndex = 31;
+            this.gerar.Location = new System.Drawing.Point(35, 105);
+            this.gerar.Name = "gerar";
+            this.gerar.Size = new System.Drawing.Size(75, 23);
+            this.gerar.TabIndex = 32;
+            this.gerar.Text = "Gerar";
+            this.gerar.UseVisualStyleBackColor = true;
+            this.gerar.Click += new System.EventHandler(this.gerar_Click);
             // 
             // Jogo
             // 
@@ -375,5 +387,6 @@
         private System.Windows.Forms.Label label_num_sort;
         private System.Windows.Forms.Button btn_bingo;
         private System.Windows.Forms.ListBox listBox_num_sort;
+        private System.Windows.Forms.Button gerar;
     }
 }
