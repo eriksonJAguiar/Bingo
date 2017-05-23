@@ -30,6 +30,19 @@ namespace Bingo
 
         private void conectarJogo(Conf_Player conf)
         {
+
+            //Criar método de conectar
+
+            if (true)
+            {
+                Jogo jogo = new Jogo();
+                jogo.Show();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao entra no jogo.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
         }
     }
 }
