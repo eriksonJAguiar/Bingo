@@ -12,6 +12,9 @@ namespace Bingo
 {
     public partial class Jogo : Form
     {
+
+        private List<int> cartelaList;
+
         public Jogo()
         {
             InitializeComponent();
@@ -41,28 +44,28 @@ namespace Bingo
 
         private void cartela()
         {
-            List<int> cartela = new List<int>();
+            cartelaList = new List<int>();
             for (int i=0; i<16; i++)
             {
-                cartela.Add(i + 1);
+                cartelaList.Add(i + 1);
             }
 
-            button1.Text = Convert.ToString(cartela[0]);
-            button2.Text = Convert.ToString(cartela[1]);
-            button3.Text = Convert.ToString(cartela[2]);
-            button4.Text = Convert.ToString(cartela[3]);
-            button5.Text = Convert.ToString(cartela[4]);
-            button6.Text = Convert.ToString(cartela[5]);
-            button7.Text = Convert.ToString(cartela[6]);
-            button8.Text = Convert.ToString(cartela[7]);
-            button9.Text = Convert.ToString(cartela[8]);
-            button10.Text = Convert.ToString(cartela[9]);
-            button11.Text = Convert.ToString(cartela[10]);
-            button12.Text = Convert.ToString(cartela[11]);
-            button13.Text = Convert.ToString(cartela[12]);
-            button14.Text = Convert.ToString(cartela[13]);
-            button15.Text = Convert.ToString(cartela[14]);
-            button16.Text = Convert.ToString(cartela[15]);
+            button1.Text = Convert.ToString(cartelaList[0]);
+            button2.Text = Convert.ToString(cartelaList[1]);
+            button3.Text = Convert.ToString(cartelaList[2]);
+            button4.Text = Convert.ToString(cartelaList[3]);
+            button5.Text = Convert.ToString(cartelaList[4]);
+            button6.Text = Convert.ToString(cartelaList[5]);
+            button7.Text = Convert.ToString(cartelaList[6]);
+            button8.Text = Convert.ToString(cartelaList[7]);
+            button9.Text = Convert.ToString(cartelaList[8]);
+            button10.Text = Convert.ToString(cartelaList[9]);
+            button11.Text = Convert.ToString(cartelaList[10]);
+            button12.Text = Convert.ToString(cartelaList[11]);
+            button13.Text = Convert.ToString(cartelaList[12]);
+            button14.Text = Convert.ToString(cartelaList[13]);
+            button15.Text = Convert.ToString(cartelaList[14]);
+            button16.Text = Convert.ToString(cartelaList[15]);
         }
 
         private void button1_Click(object sender, EventArgs e)

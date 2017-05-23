@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bingo));
             this.panel_Principal = new System.Windows.Forms.Panel();
             this.confBingo = new System.Windows.Forms.GroupBox();
+            this.textBox_jogador = new System.Windows.Forms.TextBox();
+            this.textBox_porta = new System.Windows.Forms.TextBox();
             this.textBox_ip = new System.Windows.Forms.TextBox();
             this.btn_entraJogo = new System.Windows.Forms.Button();
             this.label_jogador = new System.Windows.Forms.Label();
             this.label_porta = new System.Windows.Forms.Label();
             this.label_ip = new System.Windows.Forms.Label();
-            this.textBox_porta = new System.Windows.Forms.TextBox();
-            this.textBox_jogador = new System.Windows.Forms.TextBox();
             this.panel_Principal.SuspendLayout();
             this.confBingo.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,20 @@
             this.confBingo.TabIndex = 1;
             this.confBingo.TabStop = false;
             this.confBingo.Text = "Configuração do Bingo";
+            // 
+            // textBox_jogador
+            // 
+            this.textBox_jogador.Location = new System.Drawing.Point(146, 240);
+            this.textBox_jogador.Name = "textBox_jogador";
+            this.textBox_jogador.Size = new System.Drawing.Size(151, 26);
+            this.textBox_jogador.TabIndex = 6;
+            // 
+            // textBox_porta
+            // 
+            this.textBox_porta.Location = new System.Drawing.Point(146, 165);
+            this.textBox_porta.Name = "textBox_porta";
+            this.textBox_porta.Size = new System.Drawing.Size(151, 26);
+            this.textBox_porta.TabIndex = 5;
             // 
             // textBox_ip
             // 
@@ -112,20 +126,6 @@
             this.label_ip.Size = new System.Drawing.Size(31, 20);
             this.label_ip.TabIndex = 0;
             this.label_ip.Text = "IP:";
-            // 
-            // textBox_porta
-            // 
-            this.textBox_porta.Location = new System.Drawing.Point(146, 165);
-            this.textBox_porta.Name = "textBox_porta";
-            this.textBox_porta.Size = new System.Drawing.Size(151, 26);
-            this.textBox_porta.TabIndex = 5;
-            // 
-            // textBox_jogador
-            // 
-            this.textBox_jogador.Location = new System.Drawing.Point(146, 240);
-            this.textBox_jogador.Name = "textBox_jogador";
-            this.textBox_jogador.Size = new System.Drawing.Size(151, 26);
-            this.textBox_jogador.TabIndex = 6;
             // 
             // Bingo
             // 
