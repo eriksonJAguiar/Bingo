@@ -222,77 +222,96 @@ namespace Bingo
             habilitarBtn(Convert.ToString(num));
         }
 
-        private void habilitarBtn(String num)
-        {
-            if(button1.Text == num)
-            {
-                button1.Enabled = true;
-            }else if (button2.Text == num)
-            {
-                button2.Enabled = true;
-            }
-            else if (button3.Text == num)
-            {
-                button3.Enabled = true;
-            }
-            else if (button4.Text == num)
-            {
-                button4.Enabled = true;
-            }
-            else if (button5.Text == num)
-            {
-                button5.Enabled = true;
-            }
-            else if (button6.Text == num)
-            {
-                button6.Enabled = true;
-            }
-            else if (button7.Text == num)
-            {
-                button7.Enabled = true;
-            }
-            else if (button8.Text == num)
-            {
-                button8.Enabled = true;
-            }
-            else if (button9.Text == num)
-            {
-                button9.Enabled = true;
-            }
-            else if (button10.Text == num)
-            {
-                button10.Enabled = true;
-            }
-            else if (button11.Text == num)
-            {
-                button11.Enabled = true;
-            }
-            else if (button12.Text == num)
-            {
-                button12.Enabled = true;
-            }
-            else if (button13.Text == num)
-            {
-                button13.Enabled = true;
-            }
-            else if (button14.Text == num)
-            {
-                button14.Enabled = true;
-            }
-            else if (button15.Text == num)
-            {
-                button15.Enabled = true;
-            }
-            else if (button16.Text == num)
-            {
-                button16.Enabled = true;
-            }
-        }
-
         private void gerar_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             addcionarNumero(random.Next(1, 17));
         }
+
+        private void habilitarBtn(String num)
+        {
+            if(button1.Text == num)
+            {
+                button1.Enabled = true;
+                button1.BackColor = Color.ForestGreen;
+            }
+            else if (button2.Text == num)
+            {
+                button2.Enabled = true;
+                button2.BackColor = Color.ForestGreen;
+            }
+            else if (button3.Text == num)
+            {
+                button3.Enabled = true;
+                button3.BackColor = Color.ForestGreen;
+            }
+            else if (button4.Text == num)
+            {
+                button4.Enabled = true;
+                button4.BackColor = Color.ForestGreen;
+            }
+            else if (button5.Text == num)
+            {
+                button5.Enabled = true;
+                button5.BackColor = Color.ForestGreen;
+            }
+            else if (button6.Text == num)
+            {
+                button6.Enabled = true;
+                button6.BackColor = Color.ForestGreen;
+            }
+            else if (button7.Text == num)
+            {
+                button7.Enabled = true;
+                button7.BackColor = Color.ForestGreen;
+            }
+            else if (button8.Text == num)
+            {
+                button8.Enabled = true;
+                button8.BackColor = Color.ForestGreen;
+            }
+            else if (button9.Text == num)
+            {
+                button9.Enabled = true;
+                button9.BackColor = Color.ForestGreen;
+            }
+            else if (button10.Text == num)
+            {
+                button10.Enabled = true;
+                button10.BackColor = Color.ForestGreen;
+            }
+            else if (button11.Text == num)
+            {
+                button11.Enabled = true;
+                button11.BackColor = Color.ForestGreen;
+            }
+            else if (button12.Text == num)
+            {
+                button12.Enabled = true;
+                button12.BackColor = Color.ForestGreen;
+            }
+            else if (button13.Text == num)
+            {
+                button13.Enabled = true;
+                button13.BackColor = Color.ForestGreen;
+            }
+            else if (button14.Text == num)
+            {
+                button14.Enabled = true;
+                button14.BackColor = Color.ForestGreen;
+            }
+            else if (button15.Text == num)
+            {
+                button15.Enabled = true;
+                button15.BackColor = Color.ForestGreen;
+            }
+            else if (button16.Text == num)
+            {
+                button16.Enabled = true;
+                button16.BackColor = Color.ForestGreen;
+            }
+        }
+
+        
     }
 }
