@@ -52,6 +52,7 @@
       <DependentUpon>Bingo.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Conf_Player.cs" />
+    <Compile Include="Classes\TcpClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Bingo.resx">

@@ -7,3 +7,12 @@ E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.Pr
 E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.csproj.GenerateResource.Cache
 E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.exe
 E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.pdb
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\bin\Debug\Bingo.exe.config
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\bin\Debug\Bingo.exe
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\bin\Debug\Bingo.pdb
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.csprojResolveAssemblyReference.cache
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.Bingo.resources
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.Properties.Resources.resources
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.csproj.GenerateResource.Cache
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.exe
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.pdb
