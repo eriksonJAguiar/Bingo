@@ -33,6 +33,7 @@ namespace Bingo
             if (cartelaList.Count == 0)
             {
                 btn_bingo.Enabled = true;
+                btn_bingo.BackColor = Color.ForestGreen;
             }
         }
 
@@ -58,11 +59,8 @@ namespace Bingo
 
         private void cartela()
         {
+            //Cartela que vem do servidor, no lugar do new List<int>();
             cartelaList = new List<int>();
-            for (int i=0; i<16; i++)
-            {
-                cartelaList.Add(i + 1);
-            }
 
             button1.Text = Convert.ToString(cartelaList[0]);
             button2.Text = Convert.ToString(cartelaList[1]);
@@ -216,16 +214,10 @@ namespace Bingo
 
         }
 
-        private void addcionarNumero(int num)
+        private void addNumero(int num)
         {
             listBox_num_sort.Items.Add(num);
             habilitarBtn(Convert.ToString(num));
-        }
-
-        private void gerar_Click(object sender, EventArgs e)
-        {
-            Random random = new Random();
-            addcionarNumero(random.Next(1, 17));
         }
 
         private void habilitarBtn(String num)

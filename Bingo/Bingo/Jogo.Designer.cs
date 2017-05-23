@@ -50,13 +50,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.gerar = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
-            this.panel_principal.Controls.Add(this.gerar);
             this.panel_principal.Controls.Add(this.listBox_num_sort);
             this.panel_principal.Controls.Add(this.btn_bingo);
             this.panel_principal.Controls.Add(this.label_num_sort);
@@ -336,16 +334,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // gerar
-            // 
-            this.gerar.Location = new System.Drawing.Point(35, 105);
-            this.gerar.Name = "gerar";
-            this.gerar.Size = new System.Drawing.Size(75, 23);
-            this.gerar.TabIndex = 32;
-            this.gerar.Text = "Gerar";
-            this.gerar.UseVisualStyleBackColor = true;
-            this.gerar.Click += new System.EventHandler(this.gerar_Click);
-            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,6 +375,5 @@
         private System.Windows.Forms.Label label_num_sort;
         private System.Windows.Forms.Button btn_bingo;
         private System.Windows.Forms.ListBox listBox_num_sort;
-        private System.Windows.Forms.Button gerar;
     }
 }
