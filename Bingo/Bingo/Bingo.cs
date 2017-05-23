@@ -65,7 +65,7 @@ namespace Bingo
             }
             else
             {
-                MessageBox.Show("Erro ao entra no jogo.", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Servidor offline!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
