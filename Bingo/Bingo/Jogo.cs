@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bingo.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -59,8 +60,17 @@ namespace Bingo
 
         private void cartela()
         {
-            //Cartela que vem do servidor, no lugar do new List<int>();
+
+            TcpClient cliente = TcpClient.getInstance();
+
+            var cartela = cliente.cartela;
             cartelaList = new List<int>();
+
+            foreach (var c in cartela)
+            {
+                cartelaList.Add(c);
+            }
+            
 
             button1.Text = Convert.ToString(cartelaList[0]);
             button2.Text = Convert.ToString(cartelaList[1]);
@@ -211,7 +221,7 @@ namespace Bingo
 
         private void btn_bingo_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void addNumero(int num)

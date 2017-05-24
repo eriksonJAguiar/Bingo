@@ -17,3 +17,4 @@ C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.cspro
 C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.exe
 C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.pdb
 E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\Bingo\Bingo\obj\Debug\Bingo.Jogo.resources
+C:\Users\eriks\Documents\GitHub Projects\Bingo\Bingo\Bingo\obj\Debug\Bingo.Jogo.resources

@@ -1,0 +1,6 @@
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.csprojResolveAssemblyReference.cache
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe.config
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.pdb
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.exe
+c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.pdb

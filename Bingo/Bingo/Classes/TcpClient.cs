@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,46 +13,86 @@ namespace Bingo.Classes
 {
     class TcpClient
     {
-        public static void StartClient(string ip,int port)
-        {
-            // Data buffer for incoming data.  
-            byte[] bytes = new byte[1024];
 
-            // Connect to a remote device.  
+        private static TcpClient instance = null;
+
+        private TcpClient()
+        {
+
+        }
+
+        public static TcpClient getInstance()
+        {
+            if (instance == null)
+            {
+                instance = new TcpClient();
+
+                return instance;
+            }
+
+            return instance;
+        }
+
+        public List<int> cartela { get; set; }
+        public bool connected { get; set; }
+        public int sorteado { get; set; }
+        public bool ganhou { get; set; }
+
+
+        public void StartClient(Conf_Player conf)
+        {
+            byte[] bytes = new byte[1024];
+            ganhou = false;
+
             try
             {
-                // Establish the remote endpoint for the socket.  
-                // This example uses port 11000 on the local computer.  
-                IPHostEntry ipHostInfo = Dns.Resolve(ip);
+                IPHostEntry ipHostInfo = Dns.Resolve(conf.ip);
                 IPAddress ipAddress = ipHostInfo.AddressList[0];
-                IPEndPoint remoteEP = new IPEndPoint(ipAddress, port);
+                IPEndPoint remoteEP = new IPEndPoint(ipAddress, conf.porta);
 
-                // Create a TCP/IP  socket.  
-                Socket sender = new Socket(AddressFamily.InterNetwork,
+                Socket socket = new Socket(AddressFamily.InterNetwork,
                     SocketType.Stream, ProtocolType.Tcp);
-
-                // Connect the socket to the remote endpoint. Catch any errors.  
                 try
                 {
-                    sender.Connect(remoteEP);
+                    var _isFirst = true;
 
-                    Console.WriteLine("Socket connected to {0}",
-                        sender.RemoteEndPoint.ToString());
+                    while (true)
+                    {
+                        socket.Connect(remoteEP);
 
-                    // Encode the data string into a byte array.  
-                    byte[] msg = Encoding.ASCII.GetBytes("This is a test<EOF>");
+                        connected = socket.Connected;
 
-                    // Send the data through the socket.  
-                    int bytesSent = sender.Send(msg);
+                        Console.WriteLine("Socket connected to {0}", socket.RemoteEndPoint.ToString());
 
-                    // Receive the response from the remote device.  
-                    /*int bytesRec = sender.Receive(bytes);
-                    Console.WriteLine("Echoed test = {0}",
-                        Encoding.ASCII.GetString(bytes, 0, bytesRec));*/
+                        if (_isFirst)
+                        {
+                            byte[] msg = Encoding.ASCII.GetBytes(conf.nome);
 
-                    // Release the socket.  
-                    sender.Shutdown(SocketShutdown.Both);
-                    sender.Close();
+                            int bytesSent = socket.Send(msg);
+
+                            bytes = new Byte[2048];
+
+                            int b = socket.Receive(bytes);
+
+                            cartela = deserialize(bytes);
+
+                            _isFirst = false;
+
+                            break;
+                        }
+
+                        /*bytes = new Byte[2048];
+
+                        int bytesRec = socket.Receive(bytes);
+                        var data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+
+                        if (data != null)
+                            sorteado = int.Parse(data);*/
+
+                    }
+
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
 
                 }
                 catch (ArgumentNullException ane)
@@ -71,5 +114,26 @@ namespace Bingo.Classes
                 Console.WriteLine(e.ToString());
             }
         }
+        public List<int> deserialize(byte[] fluxo)
+        {
+            MemoryStream memStream = new MemoryStream();
+            BinaryFormatter binForm = new BinaryFormatter();
+
+            memStream.Write(fluxo, 0, fluxo.Length);
+
+            memStream.Seek(0, SeekOrigin.Begin);
+
+            List<int> c = (List<int>)binForm.Deserialize(memStream);
+
+            return c;
+        }
+        /*public void ganhou(Socket s)
+        {
+            while (true)
+            {
+
+            }
+        }*/
+
     }
 }

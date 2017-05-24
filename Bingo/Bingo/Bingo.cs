@@ -56,9 +56,11 @@ namespace Bingo
         private void conectarJogo(Conf_Player conf)
         {
 
-            //Criar método de conectar
+          
+              Classes.TcpClient cliente = Classes.TcpClient.getInstance();
+              cliente.StartClient(conf);
 
-            if (true)
+            if (cliente.connected)
             {
                 Jogo jogo = new Jogo();
                 jogo.Show();
@@ -67,7 +69,7 @@ namespace Bingo
             {
                 MessageBox.Show("Servidor offline!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
+                
         }
     }
 }
