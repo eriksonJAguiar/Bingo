@@ -18,8 +18,9 @@ namespace ServerBingoShow
         public static string data = null;
         public static List<Socket> clientesList = new List<Socket>();
         public static byte[] bytes = new Byte[1024];
-        private static string cliente;
+        //private static string cliente;
         private static List<int> numerosSorterio = new List<int>();
+        private static bool temGanhador = false;
 
         public static void StartListening(int port)
         {     
@@ -44,17 +45,16 @@ namespace ServerBingoShow
                 {
                    handler = listener.Accept();
                     clientesList.Add(handler);
+                    
                     //nome do cliente
                     int bytesRec = handler.Receive(bytes);
-                    cliente = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                    string nome = Encoding.ASCII.GetString(bytes, 0, bytesRec);
 
                     var cartela = sendCartela();
 
-                    ParameterizedThreadStart param = new ParameterizedThreadStart(handleClient);
-                    Thread th = new Thread(param);
-                    th.Start(handler);
-
-                    //broadcastNumber();
+                    //ParameterizedThreadStart param = new ParameterizedThreadStart(handleClient);
+                    Thread th = new Thread(() => handleClient(handler,nome));
+                    th.Start();
 
                 }
 
@@ -72,10 +72,10 @@ namespace ServerBingoShow
 
         }
 
-        public static void handleClient(object obj)
+        public static void handleClient(Socket handler, string cliente)
         {
 
-            Socket handler = (Socket)obj;
+            //Socket handler = (Socket)obj;
 
             Console.WriteLine("{0} Entrou...", cliente);
 
@@ -87,15 +87,21 @@ namespace ServerBingoShow
 
             handler.Send(bytes);
 
-            while (true)
+            while (!temGanhador)
             {
                 /*bytes = new byte[1024];
                int bytesRec = handler.Receive(bytes);
                 if (bytes == null) break;
                 var data = Encoding.ASCII.GetString(bytes, 0, bytesRec);*/
+
+                broadcastNumber();
+                Thread.Sleep(30000);
                 
             }
 
+            handler.Close();
+            handler.Disconnect(true);
+            Console.WriteLine("{0} Saiu do Jogo", cliente);
            
 
             // Echo the data back to the client.  
@@ -105,13 +111,22 @@ namespace ServerBingoShow
         }
         public static void broadcastNumber()
         {
-            int n = sendNumber();
-
-            byte[] dataByte = Encoding.ASCII.GetBytes(n.ToString());
-
-            foreach (Socket s in clientesList)
+            try
             {
-                s.Send(dataByte);
+                int n = sendNumber();
+
+                Console.WriteLine("Serteou {0}", n);
+
+                byte[] dataByte = Encoding.ASCII.GetBytes(n.ToString());
+
+                foreach (Socket s in clientesList)
+                {
+                    s.Send(dataByte);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
         public static int sendNumber()
@@ -159,7 +174,7 @@ namespace ServerBingoShow
             return cartela;
 
         }
-       public static byte[] ObjectToByteArray(Object obj)
+        public static byte[] ObjectToByteArray(Object obj)
         {
                 if (obj == null)
                     return null;
@@ -172,7 +187,37 @@ namespace ServerBingoShow
 
                 return ms.ToArray();
         }
-    
-}
+        public static void ganhou(Socket handler,string nome)
+        {
+            //escuta ganhador
+            bytes = new Byte[1024];
+            int bytesWin = handler.Receive(bytes);
+            string ganhou = Encoding.ASCII.GetString(bytes, 0, bytesWin);
+
+            if (ganhou.CompareTo("GANHOU") == 0)
+            {
+                temGanhador = true;
+            }
+        }
+        public static void broadcastVencedor(string vencedor)
+        {
+            try
+            {
+
+                byte[] dataByte = Encoding.ASCII.GetBytes(vencedor);
+
+                foreach (Socket s in clientesList)
+                {
+                    s.Send(dataByte);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
+    }
 
 }

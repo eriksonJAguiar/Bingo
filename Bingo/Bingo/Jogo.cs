@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace Bingo
     {
 
         private List<int> cartelaList;
+        private bool bingo = false;
 
         public Jogo()
         {
@@ -22,6 +24,8 @@ namespace Bingo
             bloquearBtn();
             cartela();
             bloquearBotaoBingo();
+            Thread th = new Thread(cantaPedra);
+            th.Start();
         }
 
         private void bloquearBotaoBingo()
@@ -221,13 +225,16 @@ namespace Bingo
 
         private void btn_bingo_Click(object sender, EventArgs e)
         {
-            
+            bingo = true;   
         }
 
         private void addNumero(int num)
         {
-            listBox_num_sort.Items.Add(num);
-            habilitarBtn(Convert.ToString(num));
+            this.Invoke(new Action(() =>
+            {
+                listBox_num_sort.Items.Add(num);
+                habilitarBtn(Convert.ToString(num));
+            }));
         }
 
         private void habilitarBtn(String num)
@@ -313,7 +320,30 @@ namespace Bingo
                 button16.BackColor = Color.ForestGreen;
             }
         }
+        public void cantaPedra()
+        {
 
-        
+            try
+            {
+                TcpClient cliente = TcpClient.getInstance();
+
+                while (!bingo)
+                {
+                    addNumero(cliente.sorteado);
+                }
+
+                cliente.ganhou = bingo;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void closed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
     }
 }

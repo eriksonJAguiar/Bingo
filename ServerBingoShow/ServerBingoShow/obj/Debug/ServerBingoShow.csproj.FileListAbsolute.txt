@@ -4,3 +4,9 @@ c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingo
 c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.pdb
 c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.exe
 c:\users\eriks\documents\visual studio 2017\Projects\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.pdb
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe.config
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.pdb
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.csprojResolveAssemblyReference.cache
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.exe
+C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.pdb

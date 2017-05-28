@@ -346,6 +346,7 @@
             this.Name = "Jogo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jogo";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.closed);
             this.panel_principal.ResumeLayout(false);
             this.panel_principal.PerformLayout();
             this.ResumeLayout(false);

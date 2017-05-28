@@ -7,7 +7,9 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Bingo.Classes
 {
@@ -37,7 +39,7 @@ namespace Bingo.Classes
         public bool connected { get; set; }
         public int sorteado { get; set; }
         public bool ganhou { get; set; }
-
+        private static AutoResetEvent autoEvent;
 
         public void StartClient(Conf_Player conf)
         {
@@ -56,13 +58,10 @@ namespace Bingo.Classes
                 {
                     var _isFirst = true;
 
-                    while (true)
+                    while (!ganhou)
                     {
                         socket.Connect(remoteEP);
-
                         connected = socket.Connected;
-
-                        Console.WriteLine("Socket connected to {0}", socket.RemoteEndPoint.ToString());
 
                         if (_isFirst)
                         {
@@ -78,18 +77,24 @@ namespace Bingo.Classes
 
                             _isFirst = false;
 
-                            break;
+                           continue;
                         }
 
-                        /*bytes = new Byte[2048];
+                        bytes = new Byte[2048];
 
                         int bytesRec = socket.Receive(bytes);
-                        var data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+                        string data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
 
-                        if (data != null)
-                            sorteado = int.Parse(data);*/
+                        //Console.WriteLine("Sorteou {0}", data);
 
+                        sorteado = int.Parse(data);
+
+                        Thread.Sleep(30000);
                     }
+
+                    //usuario grita Bingo
+                    byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
+                    socket.Send(dataByte);
 
                     socket.Shutdown(SocketShutdown.Both);
                     socket.Close();
@@ -127,13 +132,6 @@ namespace Bingo.Classes
 
             return c;
         }
-        /*public void ganhou(Socket s)
-        {
-            while (true)
-            {
-
-            }
-        }*/
 
     }
 }
