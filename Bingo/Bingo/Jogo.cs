@@ -232,7 +232,7 @@ namespace Bingo
         {
             this.Invoke(new Action(() =>
             {
-                listBox_num_sort.ResetText();
+                //listBox_num_sort.ResetText();
                 listBox_num_sort.Items.Add(num);
                 habilitarBtn(Convert.ToString(num));
             }));

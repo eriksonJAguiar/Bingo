@@ -120,9 +120,13 @@ namespace Bingo.Classes
                 sorteado = deserialize(bytes);
             }
 
-            //usuario grita Bingo
+            //cliente grita Bingo
             byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
             socket.Send(dataByte);
+
+            socket.Close();
+
+           
         }
 
     }
