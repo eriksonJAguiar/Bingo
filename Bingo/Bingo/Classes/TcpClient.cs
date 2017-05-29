@@ -37,7 +37,7 @@ namespace Bingo.Classes
 
         public List<int> cartela { get; set; }
         public bool connected { get; set; }
-        public int sorteado { get; set; }
+        public List<int> sorteado { get; set; }
         public bool ganhou { get; set; }
         private static AutoResetEvent autoEvent;
 
@@ -52,52 +52,28 @@ namespace Bingo.Classes
                 IPAddress ipAddress = ipHostInfo.AddressList[0];
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, conf.porta);
 
-                Socket socket = new Socket(AddressFamily.InterNetwork,
-                    SocketType.Stream, ProtocolType.Tcp);
+                Socket socket = null;
                 try
                 {
                     var _isFirst = true;
 
-                    while (!ganhou)
-                    {
-                        socket.Connect(remoteEP);
-                        connected = socket.Connected;
+                    socket = new Socket(AddressFamily.InterNetwork,
+                      SocketType.Stream, ProtocolType.Tcp);
+                    socket.Connect(remoteEP);
+                    connected = socket.Connected;
+     
+                    byte[] msg = Encoding.ASCII.GetBytes(conf.nome);
 
-                        if (_isFirst)
-                        {
-                            byte[] msg = Encoding.ASCII.GetBytes(conf.nome);
+                    int bytesSent = socket.Send(msg);
 
-                            int bytesSent = socket.Send(msg);
+                    bytes = new Byte[2048];
 
-                            bytes = new Byte[2048];
+                    int b = socket.Receive(bytes);
 
-                            int b = socket.Receive(bytes);
+                    cartela = deserialize(bytes);
 
-                            cartela = deserialize(bytes);
-
-                            _isFirst = false;
-
-                           continue;
-                        }
-
-                        bytes = new Byte[2048];
-
-                        int bytesRec = socket.Receive(bytes);
-                        string data = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-
-                        //Console.WriteLine("Sorteou {0}", data);
-
-                        sorteado = int.Parse(data);
-
-                        Thread.Sleep(30000);
-                    }
-
-                    //usuario grita Bingo
-                    byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
-                    socket.Send(dataByte);
-
-                    socket.Shutdown(SocketShutdown.Both);
-                    socket.Close();
+                    Thread th = new Thread(()=>reciveNumbers(socket));
+                    th.Start();
 
                 }
                 catch (ArgumentNullException ane)
@@ -131,6 +107,22 @@ namespace Bingo.Classes
             List<int> c = (List<int>)binForm.Deserialize(memStream);
 
             return c;
+        }
+        public void reciveNumbers(Socket socket)
+        {
+            Thread.Sleep(100);
+
+            while (!ganhou)
+            {
+                byte[] bytes = new Byte[2048];
+                int bytesRec = socket.Receive(bytes);
+                if (bytes == null) continue;
+                sorteado = deserialize(bytes);
+            }
+
+            //usuario grita Bingo
+            byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
+            socket.Send(dataByte);
         }
 
     }

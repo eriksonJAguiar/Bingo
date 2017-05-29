@@ -232,6 +232,7 @@ namespace Bingo
         {
             this.Invoke(new Action(() =>
             {
+                listBox_num_sort.ResetText();
                 listBox_num_sort.Items.Add(num);
                 habilitarBtn(Convert.ToString(num));
             }));
@@ -322,14 +323,14 @@ namespace Bingo
         }
         public void cantaPedra()
         {
-
             try
             {
                 TcpClient cliente = TcpClient.getInstance();
 
                 while (!bingo)
                 {
-                    addNumero(cliente.sorteado);
+                    addNumero(cliente.sorteado.Last());
+                    Thread.Sleep(2000);
                 }
 
                 cliente.ganhou = bingo;

@@ -55,7 +55,6 @@ namespace ServerBingoShow
                     //ParameterizedThreadStart param = new ParameterizedThreadStart(handleClient);
                     Thread th = new Thread(() => handleClient(handler,nome));
                     th.Start();
-
                 }
 
                 handler.Shutdown(SocketShutdown.Both);
@@ -89,25 +88,16 @@ namespace ServerBingoShow
 
             while (!temGanhador)
             {
-                /*bytes = new byte[1024];
-               int bytesRec = handler.Receive(bytes);
-                if (bytes == null) break;
-                var data = Encoding.ASCII.GetString(bytes, 0, bytesRec);*/
-
-                broadcastNumber();
-                Thread.Sleep(30000);
-                
+                  broadcastNumber();
+                  Thread.Sleep(30200);
             }
+
+            //remove cliente desconectado
+            clientesList.Remove(handler);
 
             handler.Close();
             handler.Disconnect(true);
-            Console.WriteLine("{0} Saiu do Jogo", cliente);
-           
 
-            // Echo the data back to the client.  
-            //byte[] msg = Encoding.ASCII.GetBytes(data);
-
-            //handler.Send(msg);
         }
         public static void broadcastNumber()
         {
@@ -115,9 +105,7 @@ namespace ServerBingoShow
             {
                 int n = sendNumber();
 
-                Console.WriteLine("Serteou {0}", n);
-
-                byte[] dataByte = Encoding.ASCII.GetBytes(n.ToString());
+                byte[] dataByte = ObjectToByteArray(numerosSorterio);
 
                 foreach (Socket s in clientesList)
                 {
