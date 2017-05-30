@@ -17,11 +17,13 @@ namespace Bingo
 
         private List<int> cartelaList;
         private bool bingo = false;
+        private bool viuLista = false;
 
         public Jogo()
         {
             InitializeComponent();
             bloquearBtn();
+            button_listar.BackColor = Color.Green;
             cartela();
             bloquearBotaoBingo();
             Thread th = new Thread(cantaPedra);
@@ -225,17 +227,30 @@ namespace Bingo
 
         private void btn_bingo_Click(object sender, EventArgs e)
         {
-            bingo = true;   
+            TcpClient cliente = TcpClient.getInstance();
+            cliente.ganhou = true;
         }
 
         private void addNumero(int num)
         {
-            this.Invoke(new Action(() =>
+            this.SetText(Convert.ToString(num));
+           
+        }
+        delegate void SetTextCallback(string text);
+        private void SetText(string text)
+        {
+            if (this.listBox_num_sort.InvokeRequired)
             {
-                //listBox_num_sort.ResetText();
-                listBox_num_sort.Items.Add(num);
-                habilitarBtn(Convert.ToString(num));
-            }));
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+                //habilitarBtn(text);
+            }
+            else
+            {
+                this.listBox_num_sort.Items.Clear();
+                this.listBox_num_sort.Items.Add(text);
+                habilitarBtn(text);
+            }
         }
 
         private void habilitarBtn(String num)
@@ -327,10 +342,17 @@ namespace Bingo
             {
                 TcpClient cliente = TcpClient.getInstance();
 
-                while (!bingo)
+                while (!cliente.ganhou)
                 {
-                    addNumero(cliente.sorteado.Last());
-                    Thread.Sleep(2000);
+                    if (listBox_num_sort.InvokeRequired)
+                    {
+                        Thread.Sleep(3000);
+                        this.Invoke(new MethodInvoker(delegate {
+                             addNumero(cliente.sorteado.Last());
+                        }));
+                    }
+                   
+
                 }
 
                 cliente.ganhou = bingo;
@@ -338,13 +360,33 @@ namespace Bingo
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             }
         }
 
         private void closed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void button_listar_Click(object sender, EventArgs e)
+        {
+            if (!viuLista)
+            {
+                TcpClient cliente = TcpClient.getInstance();
+
+                string valores = "";
+
+                foreach(var n in cliente.sorteado)
+                {
+                    valores += n + "\n";
+                }
+
+                MessageBox.Show(valores);
+
+                button_listar.Enabled = false;
+                button_listar.BackColor = Color.Red;
+            }
         }
     }
 }

@@ -111,20 +111,27 @@ namespace Bingo.Classes
         public void reciveNumbers(Socket socket)
         {
             Thread.Sleep(100);
-
-            while (!ganhou)
+            try
             {
-                byte[] bytes = new Byte[2048];
-                int bytesRec = socket.Receive(bytes);
-                if (bytes == null) continue;
-                sorteado = deserialize(bytes);
+                while (!ganhou)
+                {
+                    byte[] bytes = new Byte[2048];
+                    int bytesRec = socket.Receive(bytes);
+                    if (bytes == null) continue;
+                    sorteado = deserialize(bytes);
+                }
+
+                //cliente grita Bingo
+                byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
+                socket.Send(dataByte);
+
+                socket.Close();
             }
+            catch (Exception ex)
+            {
 
-            //cliente grita Bingo
-            byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
-            socket.Send(dataByte);
-
-            socket.Close();
+                Console.WriteLine(ex.Message);
+            }
 
            
         }

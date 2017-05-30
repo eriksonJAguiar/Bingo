@@ -50,11 +50,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.button_listar = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
+            this.panel_principal.Controls.Add(this.button_listar);
             this.panel_principal.Controls.Add(this.listBox_num_sort);
             this.panel_principal.Controls.Add(this.btn_bingo);
             this.panel_principal.Controls.Add(this.label_num_sort);
@@ -334,6 +336,20 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // button_listar
+            // 
+            this.button_listar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_listar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_listar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_listar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_listar.Location = new System.Drawing.Point(363, 172);
+            this.button_listar.Name = "button_listar";
+            this.button_listar.Size = new System.Drawing.Size(109, 106);
+            this.button_listar.TabIndex = 32;
+            this.button_listar.Text = "Listar";
+            this.button_listar.UseVisualStyleBackColor = false;
+            this.button_listar.Click += new System.EventHandler(this.button_listar_Click);
+            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,5 +392,6 @@
         private System.Windows.Forms.Label label_num_sort;
         private System.Windows.Forms.Button btn_bingo;
         private System.Windows.Forms.ListBox listBox_num_sort;
+        private System.Windows.Forms.Button button_listar;
     }
 }

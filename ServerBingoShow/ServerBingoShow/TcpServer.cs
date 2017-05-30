@@ -53,7 +53,7 @@ namespace ServerBingoShow
                     var cartela = sendCartela();
 
                     //ParameterizedThreadStart param = new ParameterizedThreadStart(handleClient);
-                    Thread th = new Thread(() => handleClient(handler,nome));
+                    Thread th = new Thread(() => handleClient(handler, nome));
                     th.Start();
                 }
 
@@ -88,9 +88,13 @@ namespace ServerBingoShow
 
             while (!temGanhador)
             {
-                  broadcastNumber();
-                  Thread.Sleep(30200);
+                  if(!(clientesList.Count == 0))
+                {
+                    broadcastNumber();
+                    Thread.Sleep(30200);
+                }
             }
+                   
 
             //remove cliente desconectado
             clientesList.Remove(handler);
