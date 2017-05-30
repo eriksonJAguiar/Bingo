@@ -346,7 +346,7 @@ namespace Bingo
                 {
                     if (listBox_num_sort.InvokeRequired)
                     {
-                        Thread.Sleep(3000);
+                        Thread.Sleep(10000);
                         this.Invoke(new MethodInvoker(delegate {
                              addNumero(cliente.sorteado.Last());
                         }));

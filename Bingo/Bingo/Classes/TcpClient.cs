@@ -110,7 +110,7 @@ namespace Bingo.Classes
         }
         public void reciveNumbers(Socket socket)
         {
-            Thread.Sleep(100);
+            //Thread.Sleep(15000);
             try
             {
                 while (!ganhou)

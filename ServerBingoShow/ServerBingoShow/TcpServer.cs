@@ -91,7 +91,7 @@ namespace ServerBingoShow
                   if(!(clientesList.Count == 0))
                 {
                     broadcastNumber();
-                    Thread.Sleep(30200);
+                    Thread.Sleep(10000);
                 }
             }
                    
