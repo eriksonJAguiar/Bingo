@@ -121,27 +121,23 @@ namespace Bingo.Classes
                 {
                     byte[] bytes = new Byte[2048];
                     int bytesRec = socket.Receive(bytes);
-                    mensagem = bytes.ToString();
-                    submen = mensagem.Split('#');
-                    Console.Write(submen[0]);
-                    if (submen[0] == "GANHOU")
-                    {
-                        MessageBox.Show("Jogador" + submen[1], "Ganhou", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        temGanhador = true;
-                    }
-                    else if (ganhou)
+
+                    if(ganhou)
                     {
                         byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
                         socket.Send(dataByte);
-                        Console.Write("FOI");
-                        Console.Write(ganhou);
+                        temGanhador = true;
                     }
 
                     sorteado = deserialize(bytes);
                     Console.Write(sorteado.Last());
                     
-                }            
-             
+                }
+
+                if (temGanhador)
+                {
+                    MessageBox.Show("Você ganhou!", "Ganhou", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
 
                 socket.Close();
             }

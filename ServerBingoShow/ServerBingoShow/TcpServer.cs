@@ -95,14 +95,14 @@ namespace ServerBingoShow
                 }
             }
 
-            Console.WriteLine("{0} Cliente ", cliente);
+            Console.WriteLine("{0} Saiu ", cliente);
             broadcastVencedor("GANHOU#"+cliente);
 
             //remove cliente desconectado
             clientesList.Remove(handler);
 
             handler.Close();
-            handler.Disconnect(true);
+            //handler.Disconnect(true);
 
         }
         public static void broadcastNumber()

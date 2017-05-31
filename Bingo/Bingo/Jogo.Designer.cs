@@ -53,13 +53,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btn_teste = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
-            this.panel_principal.Controls.Add(this.btn_teste);
             this.panel_principal.Controls.Add(this.label_numSorteado);
             this.panel_principal.Controls.Add(this.label_numero_sorteado);
             this.panel_principal.Controls.Add(this.button_listar);
@@ -376,17 +374,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // btn_teste
-            // 
-            this.btn_teste.Location = new System.Drawing.Point(28, 86);
-            this.btn_teste.Name = "btn_teste";
-            this.btn_teste.Size = new System.Drawing.Size(75, 23);
-            this.btn_teste.TabIndex = 35;
-            this.btn_teste.Text = "teste";
-            this.btn_teste.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn_teste.UseVisualStyleBackColor = true;
-            this.btn_teste.Click += new System.EventHandler(this.btn_teste_Click);
-            // 
             // Jogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +419,5 @@
         private System.Windows.Forms.Button button_listar;
         private System.Windows.Forms.Label label_numSorteado;
         private System.Windows.Forms.Label label_numero_sorteado;
-        private System.Windows.Forms.Button btn_teste;
     }
 }

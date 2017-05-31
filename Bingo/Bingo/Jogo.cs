@@ -404,10 +404,5 @@ namespace Bingo
             }
         }
 
-        private void btn_teste_Click(object sender, EventArgs e)
-        {
-            TcpClient cliente = TcpClient.getInstance();
-            cliente.ganhou = true;
-        }
     }
 }
