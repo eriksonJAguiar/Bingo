@@ -95,7 +95,8 @@ namespace ServerBingoShow
                 }
             }
 
-            broadcastVencedor("GANHOU " + cliente);
+            Console.WriteLine("{0} Cliente ", cliente);
+            broadcastVencedor("GANHOU#"+cliente);
 
             //remove cliente desconectado
             clientesList.Remove(handler);
