@@ -10,3 +10,9 @@ C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\b
 C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.csprojResolveAssemblyReference.cache
 C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.exe
 C:\Users\eriks\Documents\GitHub Projects\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.pdb
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe.config
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.exe
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\bin\Debug\ServerBingoShow.pdb
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.csprojResolveAssemblyReference.cache
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.exe
+E:\Dropbox\Faculdade\Sistemas Distribuídos\Bingo\ServerBingoShow\ServerBingoShow\obj\Debug\ServerBingoShow.pdb

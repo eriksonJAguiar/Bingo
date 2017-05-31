@@ -30,9 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
             this.panel_principal = new System.Windows.Forms.Panel();
+            this.button_listar = new System.Windows.Forms.Button();
             this.listBox_num_sort = new System.Windows.Forms.ListBox();
             this.btn_bingo = new System.Windows.Forms.Button();
-            this.label_num_sort = new System.Windows.Forms.Label();
+            this.label_num_sort_list = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -50,16 +51,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button_listar = new System.Windows.Forms.Button();
+            this.label_numero_sorteado = new System.Windows.Forms.Label();
+            this.label_numSorteado = new System.Windows.Forms.Label();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
+            this.panel_principal.Controls.Add(this.label_numSorteado);
+            this.panel_principal.Controls.Add(this.label_numero_sorteado);
             this.panel_principal.Controls.Add(this.button_listar);
             this.panel_principal.Controls.Add(this.listBox_num_sort);
             this.panel_principal.Controls.Add(this.btn_bingo);
-            this.panel_principal.Controls.Add(this.label_num_sort);
+            this.panel_principal.Controls.Add(this.label_num_sort_list);
             this.panel_principal.Controls.Add(this.button16);
             this.panel_principal.Controls.Add(this.button15);
             this.panel_principal.Controls.Add(this.button14);
@@ -83,15 +87,29 @@
             this.panel_principal.Size = new System.Drawing.Size(484, 461);
             this.panel_principal.TabIndex = 0;
             // 
+            // button_listar
+            // 
+            this.button_listar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button_listar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_listar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_listar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button_listar.Location = new System.Drawing.Point(363, 172);
+            this.button_listar.Name = "button_listar";
+            this.button_listar.Size = new System.Drawing.Size(109, 106);
+            this.button_listar.TabIndex = 32;
+            this.button_listar.Text = "Listar";
+            this.button_listar.UseVisualStyleBackColor = false;
+            this.button_listar.Click += new System.EventHandler(this.button_listar_Click);
+            // 
             // listBox_num_sort
             // 
             this.listBox_num_sort.Cursor = System.Windows.Forms.Cursors.Hand;
             this.listBox_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox_num_sort.FormattingEnabled = true;
             this.listBox_num_sort.ItemHeight = 25;
-            this.listBox_num_sort.Location = new System.Drawing.Point(17, 321);
+            this.listBox_num_sort.Location = new System.Drawing.Point(17, 371);
             this.listBox_num_sort.Name = "listBox_num_sort";
-            this.listBox_num_sort.Size = new System.Drawing.Size(455, 129);
+            this.listBox_num_sort.Size = new System.Drawing.Size(455, 79);
             this.listBox_num_sort.TabIndex = 31;
             // 
             // btn_bingo
@@ -108,15 +126,15 @@
             this.btn_bingo.UseVisualStyleBackColor = false;
             this.btn_bingo.Click += new System.EventHandler(this.btn_bingo_Click);
             // 
-            // label_num_sort
+            // label_num_sort_list
             // 
-            this.label_num_sort.AutoSize = true;
-            this.label_num_sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_num_sort.Location = new System.Drawing.Point(12, 293);
-            this.label_num_sort.Name = "label_num_sort";
-            this.label_num_sort.Size = new System.Drawing.Size(226, 25);
-            this.label_num_sort.TabIndex = 29;
-            this.label_num_sort.Text = "Números Sorteados:";
+            this.label_num_sort_list.AutoSize = true;
+            this.label_num_sort_list.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_num_sort_list.Location = new System.Drawing.Point(12, 343);
+            this.label_num_sort_list.Name = "label_num_sort_list";
+            this.label_num_sort_list.Size = new System.Drawing.Size(311, 25);
+            this.label_num_sort_list.TabIndex = 29;
+            this.label_num_sort_list.Text = "Lista de números sorteados:";
             // 
             // button16
             // 
@@ -336,19 +354,25 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button_listar
+            // label_numero_sorteado
             // 
-            this.button_listar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button_listar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_listar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_listar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button_listar.Location = new System.Drawing.Point(363, 172);
-            this.button_listar.Name = "button_listar";
-            this.button_listar.Size = new System.Drawing.Size(109, 106);
-            this.button_listar.TabIndex = 32;
-            this.button_listar.Text = "Listar";
-            this.button_listar.UseVisualStyleBackColor = false;
-            this.button_listar.Click += new System.EventHandler(this.button_listar_Click);
+            this.label_numero_sorteado.AutoSize = true;
+            this.label_numero_sorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_numero_sorteado.Location = new System.Drawing.Point(13, 298);
+            this.label_numero_sorteado.Name = "label_numero_sorteado";
+            this.label_numero_sorteado.Size = new System.Drawing.Size(181, 24);
+            this.label_numero_sorteado.TabIndex = 33;
+            this.label_numero_sorteado.Text = "Número Sorteado:";
+            // 
+            // label_numSorteado
+            // 
+            this.label_numSorteado.AutoSize = true;
+            this.label_numSorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_numSorteado.Location = new System.Drawing.Point(193, 298);
+            this.label_numSorteado.MinimumSize = new System.Drawing.Size(30, 30);
+            this.label_numSorteado.Name = "label_numSorteado";
+            this.label_numSorteado.Size = new System.Drawing.Size(30, 30);
+            this.label_numSorteado.TabIndex = 34;
             // 
             // Jogo
             // 
@@ -389,9 +413,11 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label_num_sort;
+        private System.Windows.Forms.Label label_num_sort_list;
         private System.Windows.Forms.Button btn_bingo;
         private System.Windows.Forms.ListBox listBox_num_sort;
         private System.Windows.Forms.Button button_listar;
+        private System.Windows.Forms.Label label_numSorteado;
+        private System.Windows.Forms.Label label_numero_sorteado;
     }
 }
