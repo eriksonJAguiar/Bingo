@@ -43,7 +43,7 @@ namespace ServerBingoShow
 
                 while (true)
                 {
-                   handler = listener.Accept();
+                    handler = listener.Accept();
                     clientesList.Add(handler);
                     
                     //nome do cliente
@@ -88,13 +88,14 @@ namespace ServerBingoShow
 
             while (!temGanhador)
             {
-                  if(!(clientesList.Count == 0))
+                if(!(clientesList.Count == 0))
                 {
                     broadcastNumber();
                     Thread.Sleep(10000);
                 }
             }
-                   
+
+            broadcastVencedor("GANHOU " + cliente);
 
             //remove cliente desconectado
             clientesList.Remove(handler);

@@ -113,17 +113,35 @@ namespace Bingo.Classes
             //Thread.Sleep(15000);
             try
             {
+                bool temGanhador = false;
+                string mensagem = null;
+
                 while (!ganhou)
                 {
                     byte[] bytes = new Byte[2048];
                     int bytesRec = socket.Receive(bytes);
-                    if (bytes == null) continue;
+                    mensagem = Convert.ToString(bytes);
+                    Console.Write(mensagem.Split(' ')[0]);
+                    if (mensagem.Split(' ')[0] == "GANHOU")
+                    {
+                        temGanhador = true;
+                        Console.Write("FOI");
+                        break;
+                    }
                     sorteado = deserialize(bytes);
                 }
 
                 //cliente grita Bingo
-                byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
-                socket.Send(dataByte);
+                if (!temGanhador)
+                {
+                    byte[] dataByte = Encoding.ASCII.GetBytes("GANHOU");
+                    socket.Send(dataByte);
+                }
+                else
+                {
+                    MessageBox.Show("Jogador" + mensagem.Split(' ')[1], "Ganhou", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
 
                 socket.Close();
             }

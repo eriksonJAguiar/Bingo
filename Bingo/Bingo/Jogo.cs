@@ -28,6 +28,7 @@ namespace Bingo
             bloquearBotaoBingo();
             Thread th = new Thread(cantaPedra);
             th.Start();
+            verificarCartela();
         }
 
         private void bloquearBotaoBingo()
@@ -37,6 +38,7 @@ namespace Bingo
 
         private void verificarBingo()
         {
+            Console.Write(cartelaList.Count);
             if (cartelaList.Count == 0)
             {
                 btn_bingo.Enabled = true;
@@ -239,7 +241,7 @@ namespace Bingo
         delegate void SetTextCallback(string text);
         private void SetText(string text)
         {
-            if (this.listBox_num_sort.InvokeRequired)
+            if (this.label_numSorteado.InvokeRequired)
             {
                 SetTextCallback d = new SetTextCallback(SetText);
                 this.Invoke(d, new object[] { text });
@@ -247,9 +249,31 @@ namespace Bingo
             }
             else
             {
-                this.listBox_num_sort.Items.Clear();
-                this.listBox_num_sort.Items.Add(text);
-                habilitarBtn(text);
+                //this.listBox_num_sort.Items.Clear();
+                TcpClient cliente = TcpClient.getInstance();
+                
+                this.label_numSorteado.Text = text;
+                foreach (var num in cliente.sorteado)
+                {
+                    if (!this.listBox_num_sort.Items.Contains(num))
+                    {
+                        this.listBox_num_sort.Items.Add(num);
+                        habilitarBtn(Convert.ToString(num));
+                    }
+                }
+                
+            }
+        }
+
+        private void verificarCartela()
+        {
+            TcpClient cliente = TcpClient.getInstance();
+            if (cliente.sorteado.Count > 0)
+            {
+                foreach (var num in cliente.sorteado)
+                {
+                    habilitarBtn(Convert.ToString(num));
+                }
             }
         }
 
@@ -344,7 +368,7 @@ namespace Bingo
 
                 while (!cliente.ganhou)
                 {
-                    if (listBox_num_sort.InvokeRequired)
+                    if (label_numSorteado.InvokeRequired)
                     {
                         Thread.Sleep(10000);
                         this.Invoke(new MethodInvoker(delegate {
@@ -371,21 +395,26 @@ namespace Bingo
 
         private void button_listar_Click(object sender, EventArgs e)
         {
-            if (!viuLista)
-            {
+           // if (!viuLista)
+          //  {
                 TcpClient cliente = TcpClient.getInstance();
 
-                string valores = "";
+            //string valores = "";
 
-                foreach(var n in cliente.sorteado)
-                {
-                    valores += n + "\n";
-                }
+            // foreach(var n in cliente.sorteado)
+            // {
+            //    valores += n + "\n";
+            // }
 
-                MessageBox.Show(valores);
+            // MessageBox.Show(valores);
 
-                button_listar.Enabled = false;
-                button_listar.BackColor = Color.Red;
+            // button_listar.Enabled = false;
+            // button_listar.BackColor = Color.Red;
+            // }
+            listBox_num_sort.Items.Clear();
+            foreach (var num in cliente.sorteado)
+            {
+                listBox_num_sort.Items.Add(num);
             }
         }
     }
