@@ -17,7 +17,6 @@ namespace Bingo
 
         private List<int> cartelaList;
         private bool bingo = false;
-        private bool viuLista = false;
 
         public Jogo()
         {
@@ -264,7 +263,6 @@ namespace Bingo
                 
             }
         }
-
         private void verificarCartela()
         {
             TcpClient cliente = TcpClient.getInstance();
@@ -395,22 +393,10 @@ namespace Bingo
 
         private void button_listar_Click(object sender, EventArgs e)
         {
-           // if (!viuLista)
-          //  {
-                TcpClient cliente = TcpClient.getInstance();
+         
+            TcpClient cliente = TcpClient.getInstance();
 
-            //string valores = "";
-
-            // foreach(var n in cliente.sorteado)
-            // {
-            //    valores += n + "\n";
-            // }
-
-            // MessageBox.Show(valores);
-
-            // button_listar.Enabled = false;
-            // button_listar.BackColor = Color.Red;
-            // }
+        
             listBox_num_sort.Items.Clear();
             foreach (var num in cliente.sorteado)
             {
