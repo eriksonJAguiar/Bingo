@@ -403,5 +403,11 @@ namespace Bingo
                 listBox_num_sort.Items.Add(num);
             }
         }
+
+        private void btn_teste_Click(object sender, EventArgs e)
+        {
+            TcpClient cliente = TcpClient.getInstance();
+            cliente.ganhou = true;
+        }
     }
 }

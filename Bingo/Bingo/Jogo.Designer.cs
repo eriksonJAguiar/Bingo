@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Jogo));
             this.panel_principal = new System.Windows.Forms.Panel();
+            this.label_numSorteado = new System.Windows.Forms.Label();
+            this.label_numero_sorteado = new System.Windows.Forms.Label();
             this.button_listar = new System.Windows.Forms.Button();
             this.listBox_num_sort = new System.Windows.Forms.ListBox();
             this.btn_bingo = new System.Windows.Forms.Button();
@@ -51,13 +53,13 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.label_numero_sorteado = new System.Windows.Forms.Label();
-            this.label_numSorteado = new System.Windows.Forms.Label();
+            this.btn_teste = new System.Windows.Forms.Button();
             this.panel_principal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_principal
             // 
+            this.panel_principal.Controls.Add(this.btn_teste);
             this.panel_principal.Controls.Add(this.label_numSorteado);
             this.panel_principal.Controls.Add(this.label_numero_sorteado);
             this.panel_principal.Controls.Add(this.button_listar);
@@ -86,6 +88,26 @@
             this.panel_principal.Name = "panel_principal";
             this.panel_principal.Size = new System.Drawing.Size(484, 461);
             this.panel_principal.TabIndex = 0;
+            // 
+            // label_numSorteado
+            // 
+            this.label_numSorteado.AutoSize = true;
+            this.label_numSorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_numSorteado.Location = new System.Drawing.Point(193, 298);
+            this.label_numSorteado.MinimumSize = new System.Drawing.Size(30, 30);
+            this.label_numSorteado.Name = "label_numSorteado";
+            this.label_numSorteado.Size = new System.Drawing.Size(30, 30);
+            this.label_numSorteado.TabIndex = 34;
+            // 
+            // label_numero_sorteado
+            // 
+            this.label_numero_sorteado.AutoSize = true;
+            this.label_numero_sorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_numero_sorteado.Location = new System.Drawing.Point(13, 298);
+            this.label_numero_sorteado.Name = "label_numero_sorteado";
+            this.label_numero_sorteado.Size = new System.Drawing.Size(181, 24);
+            this.label_numero_sorteado.TabIndex = 33;
+            this.label_numero_sorteado.Text = "Número Sorteado:";
             // 
             // button_listar
             // 
@@ -354,25 +376,16 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label_numero_sorteado
+            // btn_teste
             // 
-            this.label_numero_sorteado.AutoSize = true;
-            this.label_numero_sorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_numero_sorteado.Location = new System.Drawing.Point(13, 298);
-            this.label_numero_sorteado.Name = "label_numero_sorteado";
-            this.label_numero_sorteado.Size = new System.Drawing.Size(181, 24);
-            this.label_numero_sorteado.TabIndex = 33;
-            this.label_numero_sorteado.Text = "Número Sorteado:";
-            // 
-            // label_numSorteado
-            // 
-            this.label_numSorteado.AutoSize = true;
-            this.label_numSorteado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_numSorteado.Location = new System.Drawing.Point(193, 298);
-            this.label_numSorteado.MinimumSize = new System.Drawing.Size(30, 30);
-            this.label_numSorteado.Name = "label_numSorteado";
-            this.label_numSorteado.Size = new System.Drawing.Size(30, 30);
-            this.label_numSorteado.TabIndex = 34;
+            this.btn_teste.Location = new System.Drawing.Point(28, 86);
+            this.btn_teste.Name = "btn_teste";
+            this.btn_teste.Size = new System.Drawing.Size(75, 23);
+            this.btn_teste.TabIndex = 35;
+            this.btn_teste.Text = "teste";
+            this.btn_teste.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_teste.UseVisualStyleBackColor = true;
+            this.btn_teste.Click += new System.EventHandler(this.btn_teste_Click);
             // 
             // Jogo
             // 
@@ -419,5 +432,6 @@
         private System.Windows.Forms.Button button_listar;
         private System.Windows.Forms.Label label_numSorteado;
         private System.Windows.Forms.Label label_numero_sorteado;
+        private System.Windows.Forms.Button btn_teste;
     }
 }

@@ -86,7 +86,7 @@ namespace ServerBingoShow
 
             handler.Send(bytes);
 
-            while (!temGanhador)
+            while (!temGanhador && handler.Connected)
             {
                 if(!(clientesList.Count == 0))
                 {
